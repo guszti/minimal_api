@@ -1,10 +1,14 @@
+using DemoAPI.database;
+using DemoAPI.models;
+using Microsoft.EntityFrameworkCore;
+
 namespace DemoAPI.handlers;
 
 static class BunnyHandlers
 {
-    public static Task<List<string>> GetMany()
+    public static async Task<List<Bunny>> GetMany(MyAppContext db)
     {
-        return Task.FromResult<List<string>>(["bunny1", "bunny2"]);
+        return await db.Bunnies.ToListAsync();
     }
 
     public static Task<string> CreateOne()
