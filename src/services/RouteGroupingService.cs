@@ -6,6 +6,7 @@ static class RouteGroupingService
 {
     public static void MapAllRoutes(WebApplication app)
     {
-        BunnyRoutes.MapBunnyRoutes(app);
+        AuthRoutes.MapRoutes(app);
+        BunnyRoutes.MapRoutes(app);
     }
 }

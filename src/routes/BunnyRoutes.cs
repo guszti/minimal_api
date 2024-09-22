@@ -2,9 +2,9 @@ using DemoAPI.handlers;
 
 namespace DemoAPI.routes;
 
-static class BunnyRoutes
+class BunnyRoutes : IAppRoutes
 {
-    public static void MapBunnyRoutes(WebApplication app)
+    public static void MapRoutes(WebApplication app)
     {
         var group = app.MapGroup("bunnies");
 
