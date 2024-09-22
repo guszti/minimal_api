@@ -6,7 +6,7 @@ class BunnyRoutes : IAppRoutes
 {
     public static void MapRoutes(WebApplication app)
     {
-        var group = app.MapGroup("bunnies");
+        var group = app.MapGroup("bunnies").RequireAuthorization();
 
         group.MapGet("/", BunnyHandlers.GetMany);
         group.MapGet("/{id}", BunnyHandlers.GetOne);
