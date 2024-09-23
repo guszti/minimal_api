@@ -1,6 +1,6 @@
 namespace DemoAPI.routes;
 
-public interface IAppRoutes
+public interface IAppRoute
 {
     public static abstract void MapRoutes(WebApplication app);
 }
