@@ -1,6 +1,6 @@
 namespace DemoAPI.services;
 
-interface IJwtService
+public interface IJwtService
 {
     public string GenerateToken(string username);
 }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DemoAPI.handlers;
 
-static class BunnyHandlers
+public static class BunnyHandlers
 {
     public static async Task<IResult> GetMany(MyAppContext db)
     {

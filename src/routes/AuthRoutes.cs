@@ -2,7 +2,7 @@ using DemoAPI.handlers;
 
 namespace DemoAPI.routes;
 
-class AuthRoutes : IAppRoutes
+public class AuthRoutes : IAppRoutes
 {
     public static void MapRoutes(WebApplication app)
     {

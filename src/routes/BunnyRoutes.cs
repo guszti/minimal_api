@@ -2,7 +2,7 @@ using DemoAPI.handlers;
 
 namespace DemoAPI.routes;
 
-class BunnyRoutes : IAppRoutes
+public class BunnyRoutes : IAppRoutes
 {
     public static void MapRoutes(WebApplication app)
     {

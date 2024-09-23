@@ -2,7 +2,7 @@ using DemoAPI.routes;
 
 namespace DemoAPI.services;
 
-static class RouteGroupingService
+public static class RouteGroupingService
 {
     public static void MapAllRoutes(WebApplication app)
     {

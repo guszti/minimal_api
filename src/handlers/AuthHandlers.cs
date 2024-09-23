@@ -3,7 +3,7 @@ using DemoAPI.services;
 
 namespace DemoAPI.handlers;
 
-class AuthHandlers
+public class AuthHandlers
 {
     public static IResult SignIn(UserLogInDto user, IJwtService jwtService)
     {

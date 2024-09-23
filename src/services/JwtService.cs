@@ -5,7 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace DemoAPI.services;
 
-class JwtService : IJwtService
+public class JwtService : IJwtService
 {
     private readonly IConfiguration _configuration;
 

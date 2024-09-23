@@ -7,7 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace DemoAPI.extensions;
 
-static class WebApplicationBuilderExtension
+public static class WebApplicationBuilderExtension
 {
     public static WebApplicationBuilder AddAppServices(this WebApplicationBuilder builder)
     {

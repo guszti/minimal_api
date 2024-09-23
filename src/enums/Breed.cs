@@ -1,6 +1,6 @@
 namespace DemoAPI.enums;
 
-enum Breed
+public enum Breed
 {
     LIONHEAD,
     DUTCH,

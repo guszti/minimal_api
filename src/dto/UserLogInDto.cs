@@ -1,6 +1,6 @@
 namespace DemoAPI.dto;
 
-class UserLogInDto
+public class UserLogInDto
 {
     public string? Username { get; set; }
 

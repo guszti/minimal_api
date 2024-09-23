@@ -1,6 +1,6 @@
 namespace DemoAPI.enums;
 
-enum Sex
+public enum Sex
 {
     MALE,
     FEMALE

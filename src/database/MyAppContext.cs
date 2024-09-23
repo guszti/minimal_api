@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DemoAPI.database;
 
-class MyAppContext : DbContext
+public class MyAppContext : DbContext
 {
     public DbSet<Bunny> Bunnies => Set<Bunny>();
 

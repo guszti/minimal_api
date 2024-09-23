@@ -2,7 +2,7 @@ using DemoAPI.enums;
 
 namespace DemoAPI.models;
 
-class Bunny : Entity, IBunny
+public class Bunny : Entity, IBunny
 {
     public Sex Sex { get; set; }
 

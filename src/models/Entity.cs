@@ -1,6 +1,6 @@
 namespace DemoAPI.models;
 
-class Entity : IEntity
+public class Entity : IEntity
 {
     public int Id { get; set; }
 
