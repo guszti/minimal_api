@@ -8,12 +8,12 @@ public static class BunnyHandler
 {
     public static async Task<IResult> GetMany(MyAppContext db)
     {
-        return Results.Ok(await db.Bunnies.ToListAsync());
+        return Results.Ok(await db.Bunny.ToListAsync());
     }
 
     public static async Task<IResult> GetOne(int id, MyAppContext db)
     {
-        var bunny = await db.Bunnies.FindAsync(id);
+        var bunny = await db.Bunny.FindAsync(id);
 
         if (bunny is null)
         {
@@ -32,7 +32,7 @@ public static class BunnyHandler
             Breed = bunny.Breed
         };
 
-        var createdBunny = db.Bunnies.Add(newBunny).Entity;
+        var createdBunny = db.Bunny.Add(newBunny).Entity;
         await db.SaveChangesAsync();
 
         return Results.Created("", createdBunny);
@@ -40,7 +40,7 @@ public static class BunnyHandler
 
     public static async Task<IResult> UpdateOne(int id, Bunny bunnyUpdate, MyAppContext db)
     {
-        var bunny = await db.Bunnies.FindAsync(id);
+        var bunny = await db.Bunny.FindAsync(id);
 
         if (bunny is null)
         {
@@ -58,14 +58,14 @@ public static class BunnyHandler
 
     public static async Task<IResult> DeleteOne(int id, MyAppContext db)
     {
-        var bunny = await db.Bunnies.FindAsync(id);
+        var bunny = await db.Bunny.FindAsync(id);
 
         if (bunny is null)
         {
             return Results.NotFound();
         }
 
-        db.Bunnies.Remove(bunny);
+        db.Bunny.Remove(bunny);
         await db.SaveChangesAsync();
 
         return Results.NoContent();

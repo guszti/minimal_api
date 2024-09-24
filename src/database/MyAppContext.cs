@@ -5,7 +5,7 @@ namespace DemoAPI.database;
 
 public class MyAppContext : DbContext
 {
-    public DbSet<Bunny> Bunnies => Set<Bunny>();
+    public DbSet<Bunny> Bunny => Set<Bunny>();
 
     public DbSet<User> User => Set<User>();
 
