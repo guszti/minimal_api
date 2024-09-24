@@ -7,6 +7,8 @@ public class MyAppContext : DbContext
 {
     public DbSet<Bunny> Bunnies => Set<Bunny>();
 
+    public DbSet<User> User => Set<User>();
+
     public MyAppContext(DbContextOptions<MyAppContext> options)
         : base(options)
     {

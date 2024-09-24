@@ -1,10 +1,12 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace DemoAPI.models;
 
-public class Entity : IEntity
+public abstract class Entity : IEntity
 {
-    public int Id { get; set; }
+    [Column("id")] public int Id { get; set; }
 
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    [Column("created_at")] public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+    [Column("updated_at")] public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 }

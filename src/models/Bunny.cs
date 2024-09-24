@@ -1,12 +1,14 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using DemoAPI.enums;
 
 namespace DemoAPI.models;
 
+[Table("bunny")]
 public class Bunny : Entity, IBunny
 {
-    public Sex Sex { get; set; }
+    [Column("sex")] public Sex Sex { get; set; }
 
-    public Breed Breed { get; set; }
+    [Column("breed")] public Breed Breed { get; set; }
 
-    public int Age { get; set; }
+    [Column("age")] public int Age { get; set; }
 }
