@@ -9,6 +9,6 @@ public class AuthRoutes : IAppRoute
         var group = app.MapGroup("auth");
 
         group.MapPost("/sign-in", AuthHandler.SignIn);
-        group.MapPost("/sign-out", AuthHandler.SignOut);
+        group.MapPost("/create-user", AuthHandler.CreateUser);
     }
 }

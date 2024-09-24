@@ -13,6 +13,7 @@ public static class WebApplicationBuilderExtension
     public static WebApplicationBuilder AddAppServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IJwtService, JwtService>();
+        builder.Services.AddScoped<IAuthService, AuthService>();
 
         builder.Services.AddDbContext<MyAppContext>(opt =>
             opt.UseNpgsql(builder.Configuration.GetConnectionString("postgres")));
