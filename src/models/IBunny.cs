@@ -2,7 +2,7 @@ using DemoAPI.enums;
 
 namespace DemoAPI.models;
 
-public interface IBunny : IEntity
+public interface IBunny
 {
     public Sex Sex { get; set; }
 

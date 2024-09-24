@@ -1,5 +1,6 @@
 using System.Text;
 using DemoAPI.database;
+using DemoAPI.repository;
 using DemoAPI.services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +38,7 @@ public static class WebApplicationBuilderExtension
             };
         });
 
+        builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
         builder.Services.AddAuthorization();
 
         return builder;

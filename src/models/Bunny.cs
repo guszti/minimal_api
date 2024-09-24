@@ -4,7 +4,7 @@ using DemoAPI.enums;
 namespace DemoAPI.models;
 
 [Table("bunny")]
-public class Bunny : Entity, IBunny
+public class Bunny : AbstractEntity, IBunny
 {
     [Column("sex")] public Sex Sex { get; set; }
 

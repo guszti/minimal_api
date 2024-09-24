@@ -1,72 +1,41 @@
-using DemoAPI.database;
 using DemoAPI.models;
-using Microsoft.EntityFrameworkCore;
+using DemoAPI.repository;
 
 namespace DemoAPI.handlers;
 
 public static class BunnyHandler
 {
-    public static async Task<IResult> GetMany(MyAppContext db)
+    public static async Task<IResult> GetMany(IUnitOfWork unitOfWork)
     {
-        return Results.Ok(await db.Bunny.ToListAsync());
+        var result = await unitOfWork.BunnyRepository.FindAll();
+
+        return Results.Ok(result);
     }
 
-    public static async Task<IResult> GetOne(int id, MyAppContext db)
+    public static async Task<IResult> GetOne(int id, IUnitOfWork unitOfWork)
     {
-        var bunny = await db.Bunny.FindAsync(id);
-
-        if (bunny is null)
-        {
-            return Results.NotFound();
-        }
+        var bunny = await unitOfWork.BunnyRepository.FindOneById(id);
 
         return Results.Ok(bunny);
     }
 
-    public static async Task<IResult> CreateOne(Bunny bunny, MyAppContext db)
+    public static async Task<IResult> CreateOne(Bunny bunny, IUnitOfWork unitOfWork)
     {
-        var newBunny = new Bunny()
-        {
-            Age = bunny.Age,
-            Sex = bunny.Sex,
-            Breed = bunny.Breed
-        };
+        var newBunny = await unitOfWork.BunnyRepository.CreateOne(bunny);
 
-        var createdBunny = db.Bunny.Add(newBunny).Entity;
-        await db.SaveChangesAsync();
-
-        return Results.Created("", createdBunny);
+        return Results.Created("", newBunny);
     }
 
-    public static async Task<IResult> UpdateOne(int id, Bunny bunnyUpdate, MyAppContext db)
+    public static async Task<IResult> UpdateOne(int id, Bunny bunnyUpdate, IUnitOfWork unitOfWork)
     {
-        var bunny = await db.Bunny.FindAsync(id);
-
-        if (bunny is null)
-        {
-            return Results.NotFound();
-        }
-
-        bunny.Age = bunnyUpdate.Age;
-        bunny.Breed = bunnyUpdate.Breed;
-        bunny.Sex = bunnyUpdate.Sex;
-
-        await db.SaveChangesAsync();
+        await unitOfWork.BunnyRepository.UpdateOne(id, bunnyUpdate);
 
         return Results.NoContent();
     }
 
-    public static async Task<IResult> DeleteOne(int id, MyAppContext db)
+    public static async Task<IResult> DeleteOne(int id, IUnitOfWork unitOfWork)
     {
-        var bunny = await db.Bunny.FindAsync(id);
-
-        if (bunny is null)
-        {
-            return Results.NotFound();
-        }
-
-        db.Bunny.Remove(bunny);
-        await db.SaveChangesAsync();
+        await unitOfWork.BunnyRepository.DeleteOne(id);
 
         return Results.NoContent();
     }
