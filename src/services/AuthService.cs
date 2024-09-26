@@ -30,8 +30,13 @@ public class AuthService : IAuthService
     {
         var passwordAndHash = passwordHash.Split('.');
         var hashToCompare =
-            Rfc2898DeriveBytes.Pbkdf2(plainPassword, Convert.FromHexString(passwordAndHash[1]), Iterations,
-                _hashAlgorithm, KeySize);
+            Rfc2898DeriveBytes.Pbkdf2(
+                plainPassword,
+                Convert.FromHexString(passwordAndHash[1]),
+                Iterations,
+                _hashAlgorithm,
+                KeySize
+            );
 
         return CryptographicOperations.FixedTimeEquals(hashToCompare, Convert.FromHexString(passwordAndHash[0]));
     }
